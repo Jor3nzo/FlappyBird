@@ -7,6 +7,7 @@ public class FlappyButton : MonoBehaviour
 {
     public string nextSceenName;
 
+
     void OnMouseDown()
     {
         transform.position += Vector3.down * 0.1f;
@@ -18,6 +19,7 @@ public class FlappyButton : MonoBehaviour
         if(nextSceenName != "")
         {
             SceneManager.LoadScene(nextSceenName);
+           
         }
     }
 
