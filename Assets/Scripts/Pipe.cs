@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    public float speed;
+    public static float speed;
     public float screenStartX;
     public float screenEndX;
 
@@ -26,6 +26,5 @@ public class Pipe : MonoBehaviour
             transform.position = new Vector3(screenEndX,height);
         }
     }
-
     
 }

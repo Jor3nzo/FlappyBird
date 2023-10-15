@@ -11,12 +11,15 @@ public class Bird : MonoBehaviour
     Rigidbody2D rb;
     public float rotateScale;
     public TMP_Text scoreText;
+    public float speed;
+    public GameObject endScreen;
 
 
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();  
+        rb = GetComponent<Rigidbody2D>();
+        Pipe.speed = speed;
     }
 
 
@@ -38,11 +41,24 @@ public class Bird : MonoBehaviour
         Die();
     }
 
+
+
     void Die()
     {
-        var currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        Pipe.speed = 0;
+        jumpSpeed = 0;
+        Invoke("ShowMenu", 1f);
+        
+        //var currentScene = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(currentScene);
     }
+
+    void ShowMenu()
+    {
+        endScreen.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
